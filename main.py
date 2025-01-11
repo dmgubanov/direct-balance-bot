@@ -16,6 +16,13 @@ ALLOWED_USER_ID = int(os.getenv('ALLOWED_USER_ID'))
 ADD_LOGIN, ADD_NAME, ADD_TOKEN = range(3)
 DELETE_ACCOUNT = range(1)
 
+# Путь к файлу config.txt
+CONFIG_FILE_PATH = os.path.join('data', 'config.txt')
+
+# Создаем папку data, если её нет
+if not os.path.exists('data'):
+    os.makedirs('data')
+
 # Функция для проверки доступа
 async def check_access(update: Update, context: CallbackContext):
     if update.message.from_user.id != ALLOWED_USER_ID:
@@ -90,7 +97,7 @@ async def get_balances(update: Update, context: CallbackContext):
         return
 
     # Загружаем данные из файла config.txt
-    accounts = load_config('config.txt')
+    accounts = load_config(CONFIG_FILE_PATH)
 
     # Получаем текущую дату и время
     current_time = datetime.now().strftime("%d.%m.%Y %H:%M")
@@ -149,13 +156,13 @@ async def add_account_token(update: Update, context: CallbackContext):
     context.user_data['token'] = update.message.text
 
     # Загружаем текущие аккаунты
-    accounts = load_config('config.txt')
+    accounts = load_config(CONFIG_FILE_PATH)
 
     # Добавляем новый аккаунт
     accounts.append((context.user_data['login'], context.user_data['token'], context.user_data['name']))
 
     # Сохраняем обновленный список аккаунтов
-    save_config('config.txt', accounts)
+    save_config(CONFIG_FILE_PATH, accounts)
 
     # Возвращаем клавиатуру с командами
     keyboard = [['Получить балансы'], ['Добавить аккаунт'], ['Удалить аккаунт']]
@@ -182,7 +189,7 @@ async def delete_account(update: Update, context: CallbackContext):
     login_to_delete = update.message.text
 
     # Загружаем текущие аккаунты
-    accounts = load_config('config.txt')
+    accounts = load_config(CONFIG_FILE_PATH)
 
     # Ищем аккаунт для удаления
     found_accounts = [acc for acc in accounts if acc[0] == login_to_delete]
@@ -190,7 +197,7 @@ async def delete_account(update: Update, context: CallbackContext):
     if found_accounts:
         # Удаляем аккаунт
         accounts = [acc for acc in accounts if acc[0] != login_to_delete]
-        save_config('config.txt', accounts)
+        save_config(CONFIG_FILE_PATH, accounts)
 
         # Возвращаем клавиатуру с командами
         keyboard = [['Получить балансы'], ['Добавить аккаунт'], ['Удалить аккаунт']]
