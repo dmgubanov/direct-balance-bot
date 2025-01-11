@@ -2,12 +2,15 @@ import requests
 from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext, ConversationHandler
 from datetime import datetime  # Для работы с датой и временем
+from dotenv import load_dotenv  # Для загрузки переменных из .env
+import os  # Для работы с переменными окружения
 
-# Замените на ваш токен от BotFather
-TELEGRAM_BOT_TOKEN = 'ваш токет телеграм бота'
+# Загружаем переменные из .env
+load_dotenv()
 
-# ID пользователя, которому разрешён доступ к боту
-ALLOWED_USER_ID = 12345678  # Замените на ваш user_id
+# Получаем токен и user_id из .env
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+ALLOWED_USER_ID = int(os.getenv('ALLOWED_USER_ID'))
 
 # Состояния для ConversationHandler
 ADD_LOGIN, ADD_NAME, ADD_TOKEN = range(3)
@@ -63,7 +66,7 @@ def get_balance(login, token, name):
     }
     response = requests.post(url, json=data)
     response_json = response.json()['data']['Accounts'][0]
-    return f'{name} ({response_json["Login"]})\nBalance: {response_json["Amount"]} rub.'
+    return f'{name} ({response_json["Login"]})\nБаланс: {response_json["Amount"]} руб.'
 
 # Команда /start
 async def start(update: Update, context: CallbackContext):
