@@ -4,10 +4,10 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 from datetime import datetime  # Для работы с датой и временем
 
 # Замените на ваш токен от BotFather
-TELEGRAM_BOT_TOKEN = '72699609:AAFdkvZgawkyJ3zR3Jgxo9Rb1fxU1KyJ'
+TELEGRAM_BOT_TOKEN = 'ваш токет телеграм бота'
 
 # ID пользователя, которому разрешён доступ к боту
-ALLOWED_USER_ID = 29426181  # Замените на ваш user_id
+ALLOWED_USER_ID = 12345678  # Замените на ваш user_id
 
 # Состояния для ConversationHandler
 ADD_LOGIN, ADD_NAME, ADD_TOKEN = range(3)
