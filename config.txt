@@ -1,11 +1,1 @@
 [Accounts]
-vegatel-gubanov: y0__wgBENXVtLsHGLmAGSCB1f3_ETjOBHpsxc27v6BeSZbb9BC7bDuB, Vegatel
-e-20000125: y0__wgBEL7M6tYHGLmAGSD17f3_ES7hcQUCynLrY9EONBEAWOtqYE0t, Цифраплаза
-e-17487182: y0__wgBELCdk9YHGLmAGSC2pv7_EeXI3TraxUuYfqfcwOaCuCcWT0Fm, Жемчужина Моря
-e-16893748: y0__wgBENTTydcFGLmAGSDftPz_EVu_qGyJCO-8UpQCMW1mMP40MIHX, Адвокат Болтунов
-e-17484899: y0_AgAAAAB6krL8AAUl-AAAAAEcEpE4AAAanXjzjuRNmZ9zXNHUYjCrfD2LKg, Напролом
-e-16515764: y0_AgAAAAA3OqHqAAZAOQAAAAESWmXfAABXQESO5PRAxKcJnyn_kzwySRGY7g, Банный мир
-e-16722732: y0__wgBEIOIufQEGLmAGSDj7Pz_EVjXDF6pg9B2wmh-X4jDrn_Hfza9, КИИС
-rehaservices: y0__wgBEP6un8AGGLmAGSCwiv3_EVbtFZkGFgTUjx9rqGPK1Fa0fZbF, Рехасервис
-e-17346957: y0_AgAAAABvXM6ZAAUl-AAAAAEcEt5MAAATb7HHq2JHxbe5VhgUEynA1lI4UQ, Стелла
-e-17000466: y0_AgAAAABepFaQAAUl-AAAAAEcEtJxAACJu-CxJ_dH65mi-y6hEO_VrZR3-Q, Цветочный рай
