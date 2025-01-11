@@ -23,6 +23,11 @@ CONFIG_FILE_PATH = os.path.join('data', 'config.txt')
 if not os.path.exists('data'):
     os.makedirs('data')
 
+# Создаем файл config.txt, если его нет
+if not os.path.exists(CONFIG_FILE_PATH):
+    with open(CONFIG_FILE_PATH, 'w', encoding='utf-8') as file:
+        file.write("[Accounts]\n")
+
 # Функция для проверки доступа
 async def check_access(update: Update, context: CallbackContext):
     if update.message.from_user.id != ALLOWED_USER_ID:
